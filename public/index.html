@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Node.js Express, Passport, Socket.io Demo</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: black;
+    }
+
+    main {
+      min-width: 60vw;
+      background-color: lightblue;
+      padding: 0px 20px 10px 20px;
+    }
+
+    html,
+    main input,
+    main button {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Login</h1>
+    <form method="post" action="/login">
+      <input type="text" name="username" placeholder="Username">
+      <input type="hidden" name="password" value="password">
+      <button type="submit">Login</button>
+    </form>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect()
+    console.log("sending message 'foo' to server");
+    socket.emit('foo');
+    socket.on('bar', function (data) {
+      console.log("received message 'bar' from server");
+    });
+  </script>
+</body>
+
+</html>
