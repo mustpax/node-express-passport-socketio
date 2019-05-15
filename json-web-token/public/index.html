@@ -23,6 +23,7 @@
       min-width: 60vw;
       background-color: lightblue;
       padding: 0px 20px 10px 20px;
+      margin-bottom: 5px;
     }
 
     html,
@@ -41,7 +42,7 @@
   <main>
     <div id="logged-out" class="hidden">
       <p>You're logged out. Log in:</p>
-      <form onSubmit="onSubmit(event)">
+      <form onsubmit="onSubmit(event)">
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button type="submit">Login</button>
@@ -49,8 +50,12 @@
     </div>
     <div id="logged-in" class="hidden">
       <p>You're logged in as <strong id="logged-in-username"></strong></p>
-      <button onClick="logout(event)">Log out</button>
+      <button onclick="logout(event)">Log out</button>
     </div>
+  </main>
+  <main>
+    <p>This button should only work while logged in</p>
+    <button onclick="tryIt(event)">Try it</button>
   </main>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/client.js"></script>

@@ -42,6 +42,7 @@ io.on("connection", function(socket) {
       const verifiedToken = jwt.decode(token, SECRET, {
         algorithms: [JWT_ALGO]
       });
+      socket.user = { username: verifiedToken.username };
       socket.emit("auth-success", { username: verifiedToken.username });
     } catch (e) {
       socket.emit("auth-fail", { error: e.message });
@@ -50,6 +51,17 @@ io.on("connection", function(socket) {
 
   socket.on("logout", function(data) {
     socket.user = null;
+  });
+
+  socket.on("try", function(respFn) {
+    const { user } = socket;
+    console.log({ user });
+
+    if (user) {
+      respFn({ success: true });
+    } else {
+      respFn({ error: "Not logged in" });
+    }
   });
 });
 

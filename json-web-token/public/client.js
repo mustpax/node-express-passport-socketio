@@ -62,3 +62,14 @@ function logout(evt) {
   setLogin(false);
   socket.emit("logout");
 }
+
+function tryIt(evt) {
+  evt.preventDefault();
+  socket.emit("try", function(data) {
+    if (data.error) {
+      alert(`Failed: ${data.error}`);
+    } else {
+      alert("Success!");
+    }
+  });
+}
