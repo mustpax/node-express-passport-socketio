@@ -2,8 +2,8 @@
 
 Which one describes you best?
 
-- [I'm adding `socket.io` to an existing Node application that uses `Express` and `Passport`](#)
-- [I'm building a single-page application that only uses `socket.io`](#)
+- [I'm adding `socket.io` to an existing Node application that uses `Express` and `Passport`](#authentication-with-socketio-with-express-and-passport)
+- [I'm building a single-page application that only uses `socket.io`](#authentication-with-socketio-with-no-passport)
 
 ## Authentication with `socket.io` with `Express` and `Passport`
 
