@@ -35,14 +35,10 @@
 
 <body>
   <main>
-    <h1>Login</h1>
-    <form method="post" action="/login">
-      <input type="text" name="username" placeholder="Username">
-      <input type="hidden" name="password" value="password">
-      <button type="submit">Login</button>
-    </form>
-    <br>
+    <h1>You are logged in</h1>
     <button onclick="checkLogin(event)">Check socket.io login</button>
+    <br>
+    <a href="/logout">Logout</a>
   </main>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/client.js"></script>

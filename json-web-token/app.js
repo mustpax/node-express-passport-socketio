@@ -53,6 +53,12 @@ io.on("connection", function(socket) {
     socket.user = null;
   });
 
+  socket.use(function(packet, next) {
+    let [_, data] = packet;
+    console.log({ data });
+    next();
+  });
+
   socket.on("try", function(respFn) {
     const { user } = socket;
     console.log({ user });
