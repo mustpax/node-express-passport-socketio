@@ -24,6 +24,9 @@ io.on("connection", function(socket) {
 
   socket.on("login", function(data) {
     const { username, password } = data;
+    // The next line is placeholder code with a hardcoded username and password.
+    // In a real application, this is where you would look up the user in your database
+    // and verify that the stored hashed password matches the password provided in data.
     if (username === "user" && password === "pass") {
       const token = jwt.sign({ username }, SECRET, {
         expiresIn: "1 week",
