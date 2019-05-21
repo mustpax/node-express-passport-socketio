@@ -29,8 +29,8 @@ app.use(express.static("public"));
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
-io.use(function(packet, next) {
-  const cookie = packet.handshake.headers.cookie;
+io.use(function(socket, next) {
+  const cookie = socket.handshake.headers.cookie;
   const req = {
     headers: {
       cookie
@@ -59,7 +59,7 @@ io.use(function(packet, next) {
       if (err) {
         console.error("Error desrializing user", err);
       }
-      packet.user = user;
+      socket.user = user;
       next();
     });
   });
