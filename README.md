@@ -15,6 +15,8 @@ you need to create a `socket.io` middleware function via `io.use()`.
 
 ### Code
 
+[From `passport/app.js`](passport/app.js#L32)
+
 ```javascript
 io.use(function(socket, next) {
   const cookie = socket.handshake.headers.cookie;
@@ -43,7 +45,7 @@ io.use(function(socket, next) {
 });
 ```
 
-[See code on GitHub](passport/app.js#L32)
+### [See full codebase on GitHub](passport/)
 
 ### Other benefits
 
